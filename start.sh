@@ -3,4 +3,11 @@
 service rpcbind start
 unfsd -d
 
-exec inotifywait -rm /opt/exports
+declare -a mounts
+
+while read name
+do
+    mounts+=${name%%" "*}" "
+done < /etc/exports
+
+eval "inotifywait -rm ${lines}"
