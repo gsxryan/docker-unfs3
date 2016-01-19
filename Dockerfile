@@ -1,13 +1,16 @@
-FROM ubuntu:latest
+FROM debian:jessie-backports
 
-MAINTAINER Pepijn Bruienne bruienne@gmail.com
+MAINTAINER voobscout <voobscout@gmail.com>
 
-ENV DEBIAN_FRONTEND noninteractive
+ENV DEBIAN_FRONTEND noninteractive \
+    GIT_SSL_NO_VERIFY 1 \
+    container docker
 
 RUN apt-get update && \
-    apt-get install -y build-essential flex bison nfs-client curl
-
-RUN apt-get clean all
+    apt-get -y -q dist-upgrade && \
+    apt-get install -y -q curl build-essential flex bison nfs-client && \
+    apt-get clean all && \
+    rm /var/log/apt/* /var/log/alternatives.log /var/log/bootstrap.log /var/log/dpkg.log
 
 ADD http://iweb.dl.sourceforge.net/project/unfs3/unfs3/0.9.22/unfs3-0.9.22.tar.gz /
 
