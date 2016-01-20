@@ -11,4 +11,4 @@ do
     mounts+=${name%%" "*}" "
 done < /etc/exports
 
-eval "inotifywait -rm ${lines}"
+eval "inotifywait -rm ${mounts}"
