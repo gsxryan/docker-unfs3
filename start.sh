@@ -1,6 +1,7 @@
 #!/bin/bash
 
-service rpcbind start
+# service rpcbind start
+rpcbind
 unfsd -d
 
 declare -a mounts
