@@ -3,7 +3,7 @@ FROM debian:jessie-backports
 MAINTAINER Mitchell Hewes <me@mitcdh.com>
 ENV DEBIAN_FRONTEND noninteractive
 
-ADD http://iweb.dl.sourceforge.net/project/unfs3/unfs3/0.9.22/unfs3-0.9.22.tar.gz /
+ADD http://downloads.sourceforge.net/project/unfs3/unfs3/0.9.22/unfs3-0.9.22.tar.gz / 
 
 RUN apt-get update && \
     apt-get -qqy dist-upgrade && \
