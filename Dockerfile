@@ -1,10 +1,7 @@
 FROM debian:jessie-backports
 
-MAINTAINER voobscout <voobscout@gmail.com>
-
-ENV DEBIAN_FRONTEND noninteractive \
-    GIT_SSL_NO_VERIFY 1 \
-    container docker
+MAINTAINER Mitchell Hewes <me@mitcdh.com>
+ENV DEBIAN_FRONTEND noninteractive
 
 ADD http://iweb.dl.sourceforge.net/project/unfs3/unfs3/0.9.22/unfs3-0.9.22.tar.gz /
 
@@ -33,5 +30,7 @@ ADD start.sh /start.sh
 RUN chmod +x /start.sh
 
 EXPOSE 111/udp 111/tcp 2049/tcp 2049/udp
+
+VOLUME /rancher-nfs
 
 CMD /start.sh
