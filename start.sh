@@ -1,7 +1,3 @@
-#!/bin/bash
-# service rpcbind start
-
+#!/bin/sh
 rpcbind
 unfsd -d
-
-inotifywait -rm /rancher-nfs
