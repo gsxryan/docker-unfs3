@@ -1,1 +1,1 @@
-/export (rw,root_squash)
+/export (rw,no_root_squash)
