@@ -1,14 +1,16 @@
-# NFS Service
+# UNF3 for Docker
 
 Quick container to throw up an nfs service for inside a docker managed network. Uses UNFS3.
+
+Intended to provide an NFS share for convoy-nfs in Rancher.
 
 ### Usage
 #### Running the Docker Container
 ````
 nfsservice:
-  image: mitcdh/nfs-service
+  image: mitcdh/unfs3
   volumes:
-  - /sync/rancher-nfs:/rancher-nfs
+  - /sync/rancher-nfs:/export
 ````
 
 ### Structure
