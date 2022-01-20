@@ -14,13 +14,22 @@ CAP_SYS_ADMIN, --privileged, and AppArmor profiles are NOT required for this con
 I've been unable to find a solution for this so far.  Is NFS-Ganesha adaptable for this purpose?
 
 ### Usage
-#### Running the Docker Container
-docker-compose.yml
+#### Pull the repo
+````
+git clone https://github.com/gsxryan/docker-unfs3.git
+````
+
+#### Build the Docker container
+````
+docker build --rm --no-cache -t nfs-server .
+````
+
+#### Edit docker-compose.yml VOLUME host share path
 ````                                                        
 version: "2"
 services:
-  unfs3:
-    image: gsxryan/unfs3
+  nfs:
+    image: nfs-server
     network_mode: bridge
     ports:
       - 111:111/tcp # rpcbind
@@ -32,6 +41,16 @@ services:
 volumes:
       - /path/to/share:/export
     restart: unless-stopped
+````
+
+#### Running the Docker Container
+````
+docker compose up -d
+````
+
+#### Alternatively, use the docker RUN command
+````
+docker run -it -d --name unfs3_server -v /path/to/share:/export -p 111:111 -p 111:111/udp -p 2049:2049 -p 2049:2049/udp nfs-server
 ````
 
 ### Structure
