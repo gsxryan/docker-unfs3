@@ -2,7 +2,7 @@
 
 Quick container to throw up an nfs service for inside a docker managed network with docker-compose installed. Uses UNFS3.  This has the advantage of running in User Space instead of Kernel space.  
 
-CAP_SYS_ADMIN, --privileged, and AppArmor profiles are NOT required for this container.  This approach greatly mitigates the risk that your NFS container is exploited, leading to full host machine takeover because of excessive permissions.  This is greatly beneficial compared to the following NFS Kernel based docker containers.
+CAP_SYS_ADMIN, --privileged, and AppArmor profiles are NOT required for this container.  This approach greatly mitigates the risk that IF the NFS container is exploited, can easily lead to full host machine takeover due to excessive permissions.  This reason is beneficial compared to the following NFS Kernel based docker containers.
 
 * [ehough/docker-nfs-server](https://github.com/ehough/docker-nfs-server)
 * [f-u-z-z-l-e/docker-nfs-server](https://github.com/f-u-z-z-l-e/docker-nfs-server)
