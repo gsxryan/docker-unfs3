@@ -10,6 +10,7 @@ ADD exports /etc/exports
 ADD docker-entrypoint.sh /usr/local/bin/
 
 EXPOSE 111/udp 111/tcp 2049/tcp 2049/udp
-VOLUME /export
+#Docker-Compose manual mapping doesn't require volume
+#VOLUME /export
 
 CMD ["docker-entrypoint.sh"]
