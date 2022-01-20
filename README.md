@@ -38,7 +38,7 @@ services:
       - 2049:2049/udp #nfsd
 #mount the host volume for sharing
 #Do NOT use /. or sensitive system paths
-volumes:
+    volumes:
       - /path/to/share:/export
     restart: unless-stopped
 ````
