@@ -1,0 +1,15 @@
+version: "2"
+services:
+  unfs3:
+    image: gsxryan/unfs3
+    network_mode: bridge
+    ports:
+      - 111:111/tcp # rpcbind
+      - 111:111/udp # rpcbind
+      - 2049:2049/tcp #nfsd
+      - 2049:2049/udp #nfsd
+#mount the host volume for sharing
+#Do NOT use /. or sensitive system paths
+volumes:
+      - /path/to/share:/export
+    restart: unless-stopped
