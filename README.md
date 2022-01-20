@@ -25,22 +25,13 @@ docker build --rm --no-cache -t nfs-server .
 ````
 
 #### Edit docker-compose.yml VOLUME host share path
-````                                                        
-version: "2"
-services:
-  nfs:
-    image: nfs-server
-    network_mode: bridge
-    ports:
-      - 111:111/tcp # rpcbind
-      - 111:111/udp # rpcbind
-      - 2049:2049/tcp #nfsd
-      - 2049:2049/udp #nfsd
+````
+nano docker-compose.yml
+````
 #mount the host volume for sharing
 #Do NOT use /. or sensitive system paths
     volumes:
       - /path/to/share:/export
-    restart: unless-stopped
 ````
 
 #### Running the Docker Container
