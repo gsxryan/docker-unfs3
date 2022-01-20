@@ -28,6 +28,7 @@ docker build --rm --no-cache -t nfs-server .
 ````
 nano docker-compose.yml
 ````
+````
 #mount the host volume for sharing
 #Do NOT use /. or sensitive system paths
     volumes:
